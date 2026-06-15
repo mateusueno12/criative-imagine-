@@ -1,60 +1,54 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #555;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#555;
+.container {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background-color: #222;
 }
 
-.container{
-    position:relative;
-    width:1000px;
-    height:600px;
-    overflow:hidden;
+.clip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s;
 }
 
-.clip{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background-size:cover;
-    background-position:center;
-    transition:all .5s ease;
-    cursor:pointer;
+.clip1 {
+    background: url(1.jpg);
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(0 0, 17% 0, 49% 100%, 0% 100%);
 }
 
-/* Imagem 1 */
-.clip1{
-    background-image:url("1.jpg");
-    clip-path:polygon(0 0, 33% 0, 20% 100%, 0 100%);
+.clip2 {
+    background: url(2.jpg);
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(13% 0, 81% 0, 59% 100%, 36% 100%);
 }
 
-/* Imagem 2 */
-.clip2{
-    background-image:url("2.jpg");
-    clip-path:polygon(25% 0, 75% 0, 55% 100%, 15% 100%);
+.clip3 {
+    background: url(3.jpg);
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(79% 0, 100% 0, 100% 100%, 59% 100%);
 }
 
-/* Imagem 3 */
-.clip3{
-    background-image:url("3.jpg");
-    clip-path:polygon(67% 0, 100% 0, 100% 100%, 50% 100%);
+.container:hover .clip {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
 }
 
-/* Esconde todas ao entrar no container */
-.container:hover .clip{
-    clip-path:polygon(100% 0,100% 0,100% 100%,100% 100%);
-}
-
-/* Mostra somente a selecionada */
-.container .clip:hover{
-    clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+.container .clip:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
